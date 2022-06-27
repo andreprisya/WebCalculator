@@ -48,14 +48,23 @@ function performCalculation() {
         return;
     }
 
+    const history = {
+        firstNumber : calculator.firstNumber,
+        secondNumber : calculator.displayNumber,
+        operator : calculator.operator,
+        result : result
+    }
+
     let result = 0;
     if (calculator.operator === '+') {
         result = parseInt(calculator.firstNumber) + parseInt(calculator.displayNumber);
     } else {
         result = parseInt(calculator.firstNumber) - parseInt(calculator.displayNumber);
     }
-
+    
     calculator.displayNumber = result;
+    putHistory(history);
+    renderHistory();
 }
 
 
